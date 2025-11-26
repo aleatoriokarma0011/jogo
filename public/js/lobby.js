@@ -15,7 +15,9 @@ createRoomBtn.addEventListener('click', () => {
     return;
   }
   localStorage.setItem('ndi_nickname', nickname);
-  window.sendEvent('createRoom', { nickname });
+
+  // ENVIO CORRIGIDO
+  window.socket.emit("createRoom", nickname);
 });
 
 joinRoomBtn.addEventListener('click', () => {
@@ -26,7 +28,9 @@ joinRoomBtn.addEventListener('click', () => {
     return;
   }
   localStorage.setItem('ndi_nickname', nickname);
-  window.sendEvent('joinRoom', { roomCode, nickname });
+
+  // ENVIO CORRIGIDO
+  window.socket.emit("joinRoom", { roomCode, nickname });
 });
 
 window.socket.on('roomCreated', ({ roomCode }) => {
