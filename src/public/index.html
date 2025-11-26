@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Não Desenhe Isso - Lobby</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="page page--lobby">
+  <div class="container">
+    <header class="hero">
+      <h1>Não Desenhe Isso</h1>
+      <p>Crie ou entre em uma sala para começar a desenhar respeitando (ou não) as regras.</p>
+    </header>
+
+    <section class="card">
+      <h2>Nickname</h2>
+      <input id="nickname" type="text" placeholder="Seu nome" />
+    </section>
+
+    <section class="grid grid-2">
+      <div class="card">
+        <h2>Criar sala</h2>
+        <button id="createRoomBtn" class="btn">Criar nova sala</button>
+      </div>
+      <div class="card">
+        <h2>Entrar em sala</h2>
+        <input id="roomCode" type="text" placeholder="Código da sala" maxlength="6" />
+        <button id="joinRoomBtn" class="btn">Entrar</button>
+      </div>
+    </section>
+
+    <p id="lobbyMessage" class="message"></p>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socketClient.js"></script>
+  <script src="/js/lobby.js"></script>
+</body>
+</html>
