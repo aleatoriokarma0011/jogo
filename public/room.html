@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Não Desenhe Isso - Sala</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body class="page page--room">
+  <div class="container room-layout">
+    <header class="room-header">
+      <div>
+        <h1>Não Desenhe Isso</h1>
+        <p id="roomCodeDisplay">Sala</p>
+      </div>
+      <div class="timer" id="timer">--</div>
+    </header>
+
+    <section class="grid grid-3">
+      <div class="card" id="playersCard">
+        <div class="card-header">
+          <h2>Jogadores</h2>
+        </div>
+        <ul id="playersList" class="list"></ul>
+      </div>
+
+      <div class="card" id="rulesCard">
+        <div class="card-header between">
+          <h2>Rodada</h2>
+          <button id="startRoundBtn" class="btn">Iniciar rodada</button>
+        </div>
+        <div id="roundInfo">
+          <p><strong>O que desenhar:</strong> <span id="mustDraw">Aguardando...</span></p>
+          <p><strong>Proibido:</strong></p>
+          <ul id="forbiddenList" class="list"></ul>
+          <p><strong>Status:</strong> <span id="roundStatus">Esperando</span></p>
+        </div>
+        <div id="roundSummary" class="hidden">
+          <h3>Resumo da rodada</h3>
+          <p id="summaryText"></p>
+          <button id="nextRoundBtn" class="btn">Próxima rodada</button>
+        </div>
+      </div>
+
+      <div class="card" id="toolsCard">
+        <div class="card-header">
+          <h2>Ferramentas</h2>
+        </div>
+        <div class="tools">
+          <label>Espessura: <input type="range" id="brushSize" min="2" max="20" value="4" /></label>
+          <label>Cor: <input type="color" id="brushColor" value="#333333" /></label>
+          <button id="eraserBtn" class="btn btn-secondary">Borracha</button>
+          <button id="clearBtn" class="btn btn-secondary">Limpar tela</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card canvas-card">
+      <canvas id="drawingCanvas" width="960" height="520"></canvas>
+    </section>
+
+    <section class="grid grid-3">
+      <div class="card">
+        <h2>Honestidade</h2>
+        <div class="actions">
+          <button id="respectedBtn" class="btn">Respeitei</button>
+          <button id="brokeBtn" class="btn btn-danger">Quebrei regra</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>Controle da rodada</h2>
+        <button id="finishRoundBtn" class="btn btn-secondary">Finalizar rodada</button>
+      </div>
+      <div class="card">
+        <h2>Dicas</h2>
+        <p>Seja honesto! Você ganha mais pontos dizendo a verdade.</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/socketClient.js"></script>
+  <script src="/js/canvasTools.js"></script>
+  <script src="/js/room.js"></script>
+</body>
+</html>
